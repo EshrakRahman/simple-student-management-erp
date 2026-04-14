@@ -11,7 +11,9 @@ class ClassesForm
     {
         return $schema
             ->components([
-                TextInput::make('name'),
+                TextInput::make('name')
+                    ->required()
+                    ->unique(ignoreRecord: true),
             ]);
     }
 }
