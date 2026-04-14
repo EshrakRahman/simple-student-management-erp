@@ -12,11 +12,13 @@ use Illuminate\Database\Eloquent\Builder;
 class LatestStudents extends TableWidget
 {
     protected int|string|array $columnSpan = 'full';
+
     protected static ?int $sort = 2;
+
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn(): Builder => Student::query()->latest()->limit(5))
+            ->query(fn (): Builder => Student::query()->latest()->limit(5))
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('email')

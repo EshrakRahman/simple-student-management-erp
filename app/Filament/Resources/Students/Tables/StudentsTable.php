@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Students\Tables;
 use App\Exports\StudentExport;
 use App\Models\Classes;
 use App\Models\Section;
+use App\Models\Student;
+use Filament\Actions\Action;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -57,6 +59,14 @@ class StudentsTable
                     }),
             ])
             ->recordActions([
+                Action::make('downloadPdf')
+                    ->url(function (Student $student) {
+                        return route('student.invoice.generate', $student);
+                    }, shouldOpenInNewTab: true),
+                Action::make('Qr Code')
+                    ->url(function (Student $record) {
+                        return route('filament.admin.resources.students.qrCode', ['record' => $record]);
+                    }, shouldOpenInNewTab: true),
                 ViewAction::make(),
                 EditAction::make(),
             ])

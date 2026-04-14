@@ -22,7 +22,7 @@ class ClassesTable
                 TextColumn::make('students_count')
                     ->counts('students')
                     ->badge()
-                    ->color('info')
+                    ->color('info'),
             ])
             ->filters([
                 //

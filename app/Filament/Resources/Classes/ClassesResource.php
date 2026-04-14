@@ -19,6 +19,7 @@ use Filament\Tables\Table;
 class ClassesResource extends Resource
 {
     protected static ?string $model = Classes::class;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Academic Management';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

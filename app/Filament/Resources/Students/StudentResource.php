@@ -22,7 +22,6 @@ class StudentResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Academic Management';
 
-
     protected static string|BackedEnum|null $navigationIcon = Heroicon::AcademicCap;
 
     protected static ?string $recordTitleAttribute = 'name';
@@ -56,6 +55,8 @@ class StudentResource extends Resource
             'create' => CreateStudent::route('/create'),
             'view' => ViewStudent::route('/{record}'),
             'edit' => EditStudent::route('/{record}/edit'),
+            'qrCode' => Pages\GenerateQrCode::route('/{record}/qrcode'),
+
         ];
     }
 

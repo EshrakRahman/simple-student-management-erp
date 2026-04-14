@@ -18,9 +18,10 @@ use Filament\Tables\Table;
 
 class SectionResource extends Resource
 {
-
     protected static ?string $model = Section::class;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Academic Management';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';
